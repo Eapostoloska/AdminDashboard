@@ -1,0 +1,95 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  transition: all .2s ease-in-out; }
+
+a {
+  text-decoration: none;
+  color: #fff; }
+
+.login-bg {
+  background-image: url("https://static.pexels.com/photos/23049/pexels-photo.jpg");
+  background-attachment: fixed;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .login-bg form {
+    background-color: rgba(42, 63, 84, 0.5);
+    border-radius: 10px;
+    width: 33%;
+    padding: 30px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; }
+    .login-bg form #username, .login-bg form #password {
+      padding: 5px;
+      background: rgba(255, 255, 255, 0.3);
+      border: none;
+      border-radius: 10px;
+      margin-bottom: 25px; }
+    .login-bg form label {
+      color: #fff;
+      font-family: 'Roboto', sans-seif;
+      font-size: 12px;
+      margin-left: 20px; }
+
+nav {
+  width: 200px;
+  top: 0px;
+  height: 100vh;
+  background-color: #2a3f54;
+  padding: 10px;
+  position: fixed;
+  left: -130px; }
+  nav ul {
+    list-style: none;
+    height: 100%;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; }
+    nav ul a {
+      padding: 0  20px; }
+    nav ul li {
+      width: 100%;
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      font-size: 15px;
+      text-shadow: 2px 2px 5px #000; }
+      nav ul li img {
+        margin-top: 10px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%; }
+      nav ul li p {
+        color: #25bc9c;
+        display: flex;
+        flex-direction: column;
+        padding: 20px; }
+      nav ul li:hover {
+        font-size: 17px;
+        text-shadow: 3px 3px 8px #000; }
+      nav ul li .fa {
+        font-size: 20px; }
+    nav ul a:hover i {
+      color: #25bc9c; }
+  nav:hover {
+    left: 0px; }
+  nav:hover + .body-wrapper {
+    margin: 10px 10px 0px 210px; }
+
+.body-wrapper {
+  height: 200px;
+  background-color: #25bc9c;
+  margin: 10px 10px 0px 80px; }
+
+/*# sourceMappingURL=style.css.map */

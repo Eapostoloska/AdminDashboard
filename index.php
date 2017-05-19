@@ -21,7 +21,7 @@
 					<label for="keepSignedIn">Keep me signed in</label>
 				</div>
 			
-				<button>SIGN IN</button>
+				<button type="button" id="submitBtn">SIGN IN</button>
 			</div>
 		</form>
 	<!-- </div> -->

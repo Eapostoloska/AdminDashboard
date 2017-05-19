@@ -42,8 +42,6 @@ a{
   form{
     background-color: rgba(42, 63, 84, .7);
     border-radius: 10px;
-    width: 33%;
-    // height: 33%;
     padding: 30px 50px;
     display: flex;
     flex-direction: column;
@@ -55,6 +53,7 @@ a{
       border: none;
       border-radius: 10px;
       margin-bottom: 25px;
+      outline: none;
     }
     &>label{
       color: $accent-color;

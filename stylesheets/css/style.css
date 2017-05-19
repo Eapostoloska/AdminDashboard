@@ -4,7 +4,8 @@
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
-  transition: all .2s ease-in-out; }
+  transition: all .2s ease-in-out;
+  position: relative; }
 
 a {
   text-decoration: none;
@@ -22,7 +23,7 @@ a {
   justify-content: center;
   align-items: center; }
   .login-bg form {
-    background-color: rgba(42, 63, 84, 0.5);
+    background-color: rgba(42, 63, 84, 0.7);
     border-radius: 10px;
     width: 33%;
     padding: 30px 50px;
@@ -35,11 +36,46 @@ a {
       border: none;
       border-radius: 10px;
       margin-bottom: 25px; }
-    .login-bg form label {
-      color: #fff;
+    .login-bg form > label {
+      color: #25bc9c;
       font-family: 'Roboto', sans-seif;
-      font-size: 12px;
+      font-size: 15px;
+      font-weight: 700;
       margin-left: 20px; }
+    .login-bg form #submit {
+      display: flex;
+      justify-content: space-around;
+      align-items: center; }
+      .login-bg form #submit #keepSignedIn-wrapper {
+        display: flex;
+        align-items: center; }
+        .login-bg form #submit #keepSignedIn-wrapper #keepSignedIn {
+          display: none; }
+          .login-bg form #submit #keepSignedIn-wrapper #keepSignedIn:checked + #keepSignedIn-box:before {
+            font-family: FontAwesome;
+            content: "\f00c";
+            color: #2a3f54;
+            position: absolute;
+            top: 2px;
+            left: 2px; }
+        .login-bg form #submit #keepSignedIn-wrapper #keepSignedIn-box {
+          width: 20px;
+          height: 20px;
+          background-color: #25bc9c;
+          border-radius: 5px; }
+        .login-bg form #submit #keepSignedIn-wrapper label {
+          margin-left: 5px;
+          color: #25bc9c; }
+      .login-bg form #submit button {
+        background-color: #25bc9c;
+        border: none;
+        border-radius: 5px;
+        padding: 10px;
+        color: #fff;
+        box-shadow: 0 0 0 #000; }
+        .login-bg form #submit button:hover {
+          transform: scale(1.05, 1.05);
+          box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3); }
 
 nav {
   width: 200px;

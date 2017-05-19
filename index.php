@@ -14,15 +14,17 @@
 			<label>PASSWORD</label>
 			<input type="password" id="password">
 	
-			<div id="keepSignedIn-wrapper"><input type="checkbox" id="keepSignedIn">
-						<label for="keepSignedIn">Keep me signed in</label></div>
-
-			<button>SIGN IN</button>
+			<div id="submit">
+				<div id="keepSignedIn-wrapper">
+					<input type="checkbox" id="keepSignedIn">
+					<label for="keepSignedIn" id="keepSignedIn-box"></label>
+					<label for="keepSignedIn">Keep me signed in</label>
+				</div>
+			
+				<button>SIGN IN</button>
+			</div>
 		</form>
 	<!-- </div> -->
 </div>
 
-
-
-</body>
-</html>
+<?php include 'includes/footer.php' ?>

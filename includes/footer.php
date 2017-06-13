@@ -4,14 +4,31 @@
 
 <!-- If page is index.php, add js/users.js -->
 <?php 
-    $phpSelf = $_SERVER['PHP_SELF'];
-    $phpSelfElements = explode('/', $phpSelf);
-    if ($phpSelfElements[count($phpSelfElements)-1] == 'index.php') {
- ?>
-    <script src="js/users.js" />
-<?php
-    }
+	$phpSelf = $_SERVER ['PHP_SELF'];
+	$phpSelfElements = explode('/', $phpSelf);
+	$currentPage = ($phpSelfElements[count($phpSelfElements) - 1]);
 ?>
+
+<?php if($currentPage == 'index.php'){ ?>
+	<script src="js/users.js"></script>
+<?php } ?>
+
+<?php if($currentPage == 'landing.php'){ ?>
+	<script src="js/users.js"></script>
+	<script src="js/index.js"></script>
+
+	<!-- incremental counter libraries -->
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js'></script>
+<?php } ?>
+
+
+<script>
+	var currentUser = localStorage.getItem("user");
+	$("#greeting").text(currentUser);
+</script>
+
+
 
 </body>
 </html>

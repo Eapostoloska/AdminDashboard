@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import url('https://fonts.googleapis.com/css?family=Roboto:900');
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 @mixin font-awesome($content){
     font-family: FontAwesome;
@@ -13,12 +14,39 @@ $main-color: rgba(42, 63, 84, 1);
 $accent-color: rgba(37, 188, 156, 1);
 $font-size: 10px;
 
+/*Scroll Design*/
+::-webkit-scrollbar {
+      width: 5px;
+} /* this targets the default scrollbar (compulsory) */
+::-webkit-scrollbar-track {
+      background-color: #474d59;
+} /* the new scrollbar will have a flat appearance with the set background color */
+ 
+::-webkit-scrollbar-thumb {
+      background-color: rgba(0, 0, 0, 0.2); 
+} /* this will style the thumb, ignoring the track */
+ 
+::-webkit-scrollbar-button {
+      background-color: #000;
+} /* optionally, you can style the top and the bottom buttons (left and right for horizontal bars) */
+ 
+::-webkit-scrollbar-corner {
+      background-color: #474d59;
+} /* if both the vertical and the horizontal bars appear, then perhaps the right bottom corner also needs to be styled */
+
 *{
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
   transition: all .2s ease-in-out;
   position: relative;
+  outline: none;
+}
+
+body{
+  background-image: url('../../img/bg.jpg');
+  background-attachment: fixed;
+  font-family: 'Roboto', sans-seif;
 }
 
 a{
@@ -26,35 +54,45 @@ a{
   color: #fff;
 }
 
+button{
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0.3);
+  transform: scale(1, 1);
+  transition: all .3s ease-out;
+
+  &:hover{
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    transform: scale(1.01, 1.01);
+  }
+}
+
+
+div::selection, input::selection, textarea::selection, select::selection, option::selection, button::selection, a::selection {
+  background-color: #25bc9c;
+}
+
+
 .login-bg{
-  background-image: url('https://static.pexels.com/photos/23049/pexels-photo.jpg');
+  background-image: url('../../img/login-bg.jpg');
   background-attachment: fixed;
   background-position: center center; 
   background-repeat: no-repeat;
   background-size: 100% 100%;
   width: 100vw;
   height: 100vh;
-
   display: flex;
   justify-content: center;
   align-items: center;
 
   form{
+    width: 35%;
+    height: 40%;
     background-color: rgba(42, 63, 84, .7);
-    border-radius: 10px;
+    border-radius: 5px;
     padding: 30px 50px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
-    #username, #password{
-      padding: 5px;
-      background: rgba(255, 255, 255, .3);
-      border: none;
-      border-radius: 10px;
-      margin-bottom: 25px;
-      outline: none;
-    }
+    
     &>label{
       color: $accent-color;
       font-family: 'Roboto', sans-seif;
@@ -62,56 +100,70 @@ a{
       font-weight: 700;
       margin-left: 20px;
     }
-    #submit{
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-
-      #keepSignedIn-wrapper{
-        display: flex;
-        align-items: center;
-
-        #keepSignedIn{
-          display: none;
-          &:checked + #keepSignedIn-box:before{
-            font-family: FontAwesome;
-            content: "\f00c";
-            color: $main-color;
-            position: absolute;
-            top: 2px;
-            left: 2px;
-          }
-        }
-        #keepSignedIn-box{
-          width: 20px;
-          height: 20px;
-          background-color: $accent-color;
-          border-radius: 5px;
-        }
-        label{
-          margin-left: 5px;
-          color: $accent-color;
-
-        }
-      }
-      button{
-        background-color: $accent-color;
-        border: none;
-        border-radius: 5px;
-        padding: 10px;
-        color: #fff;
-        box-shadow: 0 0 0 #000;
-        
-        &:hover{
-          transform: scale(1.05, 1.05);
-          box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
-        }
-      }
-    }
-
   }
 }
 
+#username, #password{
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, .3);
+  border: none;
+  border-radius: 10px;
+  margin-bottom: 25px;
+  outline: none;
+  font-family: Roboto;
+  font-size: 16px;
+  color: #fff;
+
+}
+
+#keepSignedIn-box{
+  width: 20px;
+  height: 20px;
+  background-color: $accent-color;
+  border-radius: 5px;
+}
+
+#keepSignedIn{
+  display: none;
+  &:checked + #keepSignedIn-box:before{
+    font-family: FontAwesome;
+    content: "\f00c";
+    color: $main-color;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+  }
+}
+#keepSignedIn-wrapper{
+  display: flex;
+  align-items: center;
+  label{
+    margin-left: 5px;
+    color: $accent-color;
+  }
+}
+
+#submit{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  button{
+    background-color: $accent-color;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    color: #fff;
+    box-shadow: 0 0 0 #000;
+    
+    &:hover{
+      transform: scale(1.05, 1.05);
+      box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+    }
+  }
+}
+
+//no tuch
 nav{
   width: 200px;
   top: 0px;
@@ -140,6 +192,7 @@ nav{
       justify-content: space-between;
       font-size: $font-size + 5px;
       text-shadow: 2px 2px 5px #000;
+      cursor: pointer;
 
       img{
         margin-top: 10px;
@@ -179,7 +232,427 @@ nav{
 }
 
 .body-wrapper{
-  height: 200px;
-  background-color: $accent-color;
   margin: 10px 10px 0px 80px;
+}
+
+#greeting{
+  text-transform: capitalize;
+}
+
+//GENERAL STYLE FOR ALL CARDS
+.block{
+  // background-color: rgba(255, 255, 255, .4);
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 0px;
+}
+
+.title{
+  width: 100%;
+  background-color: #2a3f54;
+  color: #fff;
+  text-align: center;
+  font-size: 19px;
+  padding: 5px;
+}
+
+// INDEX GRID
+.land-grid{
+  width: 90%;
+  height: 1800px;
+  margin: 0 auto;
+  display: grid;
+  grid: repeat(12, 1fr) / repeat(4, 1fr);
+  grid-gap: 20px;
+}
+
+#total-users{
+  grid-area: 1 / 1 / 2 / 2;
+}
+#avg-work{
+  grid-area: 1 / 2 / 1 / 3;
+}
+#messages{
+  grid-area: 1 / 3 / 1 / 4;
+}
+#total-visits{
+  grid-area: 1 / 4 / 1 / 5;
+}
+#weather{
+  grid-area: 2 / 1 / span 2 / span 3;
+}
+#weather-stat{
+  grid-area: 2 / 4 / span 2 / 5;
+}
+#line-chart{
+  grid-area: 4 / 1 / span 3 / span 4;
+}
+#create-task{
+  grid-area: 7 / 1 / span 3 / 2;
+}
+#display-task{
+  grid-area: 7 / 2 / span 4 / 3;
+}
+#pie-charts{
+  grid-area: 7 / 3 / 8 / span 2;
+}
+#bar-chart{
+  grid-area: 10 / 1 / 11 / 2;
+}
+
+#map{
+  grid-area: 8 / 3 / span 3/ span 2;
+}
+
+#platforms-pie{
+  grid-area: 11 / 1 / span 2 / 2;
+}
+
+#guests-pie{
+  grid-area: 11 / 2 / span 2 / 3;
+}
+
+#server-pie{
+  grid-area: 11 / 3 / span 2 / 4;
+}
+
+#calendar{
+  grid-area: 11 / 4 / span 2 / 5;
+}
+
+/* Media Queries */
+/*Large Screens*/
+@media only screen and (max-width: 1200px){
+  .land-grid{
+    width: 95%;
+  }
+}
+
+@media only screen and (max-width: 992px){
+  .land-grid{
+    width: 100%;
+    grid: repeat(19, 1fr) / repeat(4, 1fr);
+    grid-gap: 20px;
+    height: 2500px;
+  }
+
+  #weather{
+    grid-area: 2 / 1 / span 2 / span 4;
+  }
+  #weather-stat{
+    grid-area: 4 / 1 / span 2 / span 2;
+  }
+  #bar-chart{
+    grid-area: 4 / 3 / span 2 / span 2;
+  }
+  #line-chart{
+    grid-area: 6 / 1 / span 2 / span 4;
+  }
+  #create-task{
+    grid-area: 8 / 1 / span 3 / span 2;
+  }
+  #display-task{
+    grid-area: 8 / 3 / span 3 / span 2;
+  }
+  #pie-charts{
+    grid-area: 11 / 1 / 12 / span 4;
+  }
+  #map{
+    grid-area: 12 / 1 / span 3 / span 4;
+  }
+  #platforms-pie{
+    grid-area: 15 / 1 / span 2 / span 2;
+  }
+  #guests-pie{
+    grid-area: 15 / 3 / span 2 / span 2;
+  }
+  #server-pie{
+    grid-area: 17 / 1 / span 2 / span 2;
+  }
+  #calendar{
+    grid-area: 17 / 3 / span 2 / span 2;
+  }
+}
+
+@media only screen and (max-width: 650px){
+  .land-grid{
+    width: 100%;
+    grid: repeat(14, 1fr) / repeat(2, 1fr);
+    grid-gap: 10px;
+    height: 2500px;
+  }
+
+  #total-users{
+    grid-area: 1 / 1 / 2 / 2;
+  }
+  #avg-work{
+    grid-area: 1 / 2 / 2 / 3;
+  }
+  #messages{
+    grid-area: 2 / 1 / 3 / 2;
+  }
+  #total-visits{
+    grid-area: 2 / 2 / 3 / 3;
+  }
+  #weather{
+    grid-area: 3 / 1 / 4 / 3;
+  }
+  #weather-stat{
+    grid-area: 4 / 1 / 5 / 3;
+  }
+  #bar-chart{
+    grid-area: 5 / 1 / 6 / 3;
+  }
+  #line-chart{
+    grid-area: 6 / 1 / 7 / 3;
+  }
+  #create-task{
+    grid-area: 7 / 1 / 8 / 3;
+  }
+  #display-task{
+    grid-area: 8 / 1 / 9 / 3;
+  }
+  #pie-charts{
+    grid-area: 9 / 1 / 10 / 3;
+  }
+  #map{
+    grid-area: 10 / 1 / 12 / 3;
+  }
+  #platforms-pie{
+    grid-area: 12 / 1 / 13 / 2;
+  }
+  #guests-pie{
+    grid-area: 12 / 2 / 13 / 3;
+  }
+  #server-pie{
+    grid-area: 13 / 1 / 14 / 2;
+  }
+  #calendar{
+    grid-area: 13 / 2 / 14 / 3;
+  }
+}
+
+// Individual Elements
+#total-users, #avg-work, #messages, #total-visits{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  div{
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    h3{
+      color: #fff;
+      font-weight: 200;  
+    }
+
+    .fa{
+      font-size: 30px;
+      color: $accent-color;
+    }
+  }
+}
+
+.statistic-counter{
+  font-size: 40px;
+  font-weight: 700;
+  color: $accent-color;
+}
+
+// Tasks
+
+.create-task-content{
+  height: calc(100% - 33px);
+  padding: 20px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  select{
+    border: none;
+    background: none;
+    border-bottom: 2px solid $accent-color;
+    color: $accent-color;
+    font-size: 15px;
+    margin-bottom: 20px;
+
+  }
+  select option{
+    background: #2a3f54;
+    color: #fff;
+  }
+}
+
+#submit-task{
+  border: none;
+  border-radius: 50px;
+  background-color: #25bc9c;
+  color: #fff;
+  padding: 5px;
+}
+
+.task-display-content{
+  height: calc(100% - 33px);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  overflow-y: scroll;
+}
+
+.task{
+  width: 85%;
+  margin-bottom: 20px;
+
+  h3{
+    color: #25bc9c;
+  }
+
+  &:after{
+    content: '';
+    position: absolute;
+    left: -19px;
+    top: 0;
+    width: 2px;
+    height: 120%;
+    background-color: #25bc9c;
+  }
+  span{
+    text-transform: capitalize;
+    color: $accent-color;
+  }
+}
+
+.semaphore{
+  position: absolute;
+  left: -28px;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  z-index: 2;
+  cursor: pointer;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5), 0 0 0 rgba(0, 0, 0, 0.3);
+  transform: scale(1, 1);
+  transition: all .3s ease-out;
+
+  &hover{
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5), 2px 2px 3px rgba(0, 0, 0, 0.3);
+    transform: scale(1.01, 1.01);
+  }
+}
+
+.high-priority{
+  background-color: #fa9482;
+}
+.medium-priority{
+  background-color: #ffd288;
+}
+.low-priority{
+  background-color: #adfcba;
+}
+.task-finished{
+  background-color: #d2d2d2;
+
+  &:before{
+    content: "\f00c";
+    font-family: "FontAwesome";
+    font-size: 16px;
+    color: #25bc9c;
+    z-index: 3;
+    position: absolute;
+    top: 1px;
+    left: 1px;
+  }
+}
+
+.remove-task{
+  float: right;
+  padding: 0px 2px;
+  background-color: transparent;
+  border: none;
+  color: #a90a0a;
+  font-size: 20px;
+}
+
+// material design
+.group        { 
+  position: relative; 
+  margin-bottom: 15px;
+
+  input, textarea{
+    font-size: 18px;
+    padding: 7px;
+    display: block;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid $accent-color;
+    background-color: transparent;
+    color: #fff;
+    resize: none;
+
+    &:focus ~ label, &:valid ~ label{
+      top: -20px;
+      font-size: 14px;
+      color: #c9c4c4;
+    }
+    &:focus ~ .bar:before, &:focus ~ .bar:after {
+      width: 50%;
+    }
+  }
+
+  label{
+    color: $accent-color; 
+    font-size: 15px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 0px;
+    transition: 0.2s ease all; 
+    -moz-transition: 0.2s ease all; 
+    -webkit-transition: 0.2s ease all;
+  }
+}
+
+.bar  {
+  position: relative;
+  display: block;
+  // width: 300px;
+
+  &:before, &:after{
+    content: '';
+    height: 2px; 
+    width: 0;
+    bottom: 1px; 
+    position: absolute;
+    background: $accent-color; 
+    transition: 0.2s ease all; 
+    -moz-transition: 0.2s ease all; 
+    -webkit-transition: 0.2s ease all;
+  }
+  &:before {
+    left: 50%;
+  }
+  &:after {
+    right: 50%; 
+  }
+}
+
+/* ANIMATIONS ================ */
+@-webkit-keyframes inputHighlighter {
+  from { background:#5264AE; }
+  to  { width:0; background:transparent; }
+}
+@-moz-keyframes inputHighlighter {
+  from { background:#5264AE; }
+  to  { width:0; background:transparent; }
+}
+@keyframes inputHighlighter {
+  from { background:#5264AE; }
+  to  { width:0; background:transparent; }
 }

@@ -656,3 +656,165 @@ nav{
   from { background:#5264AE; }
   to  { width:0; background:transparent; }
 }
+
+
+/***********/
+/* WEATHER */
+/***********/
+
+.weather-container{
+  height: calc(100% - 33px);
+  background-image: url('../../img/skopje.jpg');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.loader{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box{
+  max-width: 300px;
+  height: 100%;
+  border-radius: 5px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  color: #2a3f54;
+}
+.wrap{
+  width: 100%;
+  height: auto;
+  padding-top: 20px;
+  text-align:center;
+  opacity: 0;
+  transition: all 1s;
+}
+.weather{
+  font-size: 30px;
+}
+
+#temp{
+  font-size: 25px;
+  cursor: pointer;
+  padding-bottom: 10px;
+}
+
+.celcius::after{
+  content: ' °C';
+}
+.fahrenheit::after{
+  content: ' °F';
+}
+
+.fahrenheit{
+  display: none;
+}
+
+#icon{
+  height:0px;
+  transition: all 1s;
+  margin-bottom: 15px;
+}
+
+/*time*/
+.middle {
+  height: 100%;
+  overflow: hidden;
+    
+    div {
+    width: 100%;
+  }
+}
+#hour {
+  display: block;
+  margin: 5px;
+  text-align: center;
+  color: #fff;
+  font-size: 24px;
+  font-weight: 300;
+}
+
+#cadran {
+  height: 150px;
+  width: 150px;
+  background-color: rgba(42, 63, 84, .8);
+  margin: 0 auto;
+  border-radius: 50%;
+  position: relative;
+  padding: 10px;
+}
+.ai {
+  transform-origin: bottom center;
+  position: relative;
+  left: 50%;
+}
+#h-aiguille {
+  width: 3px;
+  top: 15%;
+  height: 35%;
+  background-color: white;
+  border-radius: 2px;
+}
+#m-aiguille {
+  width: 3px;
+  height: 50%;
+  top: -35%;
+  background-color: white;
+  border-radius: 2px;
+}
+#s-aiguille {
+  width: 2px;
+  background-color: #25bc9c;
+  border-radius: 1px;
+  height: 50%;
+  left: 50%;
+  top: -85%;
+}
+
+
+/*chart*/
+.line-chart-content, .weather-stat-container, #mapid{
+  height: calc(95% - 33px);
+  width: 100%;
+
+}
+
+#weather-chart, #area-chart{
+  width: 100%;
+  height: 100%;
+}
+
+#pie-charts{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#profile-complete, #mail-replies, #bounce-rate{
+  width: 30%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: center;
+}
+#profile-pie{
+  width: 100%;
+  height: 100%;
+}
+
+.c3 svg {
+    width: 97% !important;
+}
+
+// MAP
+// #mapid {
+//   height: 180px;
+// }

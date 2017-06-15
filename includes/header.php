@@ -3,6 +3,12 @@
 <head>
 	<title>Admin Dashboard</title>
 	<link rel="stylesheet" type="text/css" href="stylesheets/css/style.css">
+    <!-- weather -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.css">
+  <!-- chart -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.10/c3.min.css" rel="stylesheet" />
+  <!-- leaflet map -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
 </head>
 <body>
 

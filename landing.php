@@ -37,14 +37,44 @@
 
 	<div id="weather" class="block">
 		<div class="title">weather/temperature/hour</div>
+		<div class="weather-container">
+			<div class="box">
+	   		<div class="loader"><img src="img/loader.gif"></div>
+	   		<!-- https://loading.io/ -->
+				<div class="wrap">
+				<canvas id="icon"></canvas>
+				<div id="loc"></div>
+				<div class="weather"></div>
+				<div id="temp" onClick="changeTemp()">
+					<span class="celcius"></span>
+					<span class="fahrenheit"></span>
+				</div>
+	  			</div>
+	 		</div>
+
+			<div class="clock">
+				<span id="hour"></span>
+				<div id="cadran">
+					<div id="h-aiguille" class="ai"></div>
+					<div id="m-aiguille" class="ai"></div>
+					<div id="s-aiguille" class="ai"></div>
+				</div>
+			</div>
+	 	</div>
 	</div>
 
 	<div id="weather-stat" class="block">
 		<div class="title">stats about weather</div>
+		<div class="weather-stat-container">
+			<div id="weather-chart"></div>
+		</div>
 	</div>
 
 	<div id="line-chart" class="block">
 		<div class="title">line chart</div>
+		<div class="line-chart-content">
+			<div id="area-chart"></div>
+		</div>
 	</div>
 
 	<div id="create-task" class="block">
@@ -77,31 +107,40 @@
 	<div id="display-task" class="block">
 		<div class="title">display task</div>
 		<div class="task-display-content">
-				<div class="task">
-					<h3>
-						<div class="high-priority semaphore"></div>
-						Minimize CSS
-					</h3>
-					<h6>Assigned to: <span>Elena</span></h6>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua.</p>
-				</div>
-				<div class="task">
-					<h3>
-						<div class="low-priority semaphore"></div>
-						Minimize CSS
-					</h3>
-					<h6>Assigned to: <span>Elena</span></h6>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua.</p>
-				</div>
+			<div class="task">
+				<h3>
+					<div class="high-priority semaphore"></div>
+					Minimize CSS
+				</h3>
+				<h6>Assigned to: <span>Elena</span></h6>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua.</p>
 			</div>
+			<div class="task">
+				<h3>
+					<div class="low-priority semaphore"></div>
+					Minimize CSS
+				</h3>
+				<h6>Assigned to: <span>Elena</span></h6>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua.</p>
+			</div>
+		</div>
 	</div>
 
 	<div id="pie-charts" class="block">
-		<div id="profile-complete" class="block">profile completion</div>
-		<div id="mail-replies" class="block">mail replies</div>
-		<div id="bounce-rate" class="block">bounce rate</div>
+		<div id="profile-complete">
+			<h3>Profile Completion</h3>
+			<div id="profile-pie"></div>
+		</div>
+		<div id="mail-replies">
+			<h3>Mail Replies</h3>
+			<div id="mail-pie"></div>
+		</div>
+		<div id="bounce-rate">
+			<h3>Bounce Rate</h3>
+			<div id="bounce-pie"></div>
+		</div>
 	</div>
 
 	<div id="bar-chart" class="block">
@@ -110,6 +149,7 @@
 
 	<div id="map" class="block">
 		<div class="title">map</div>
+		<div id="mapid"></div>
 	</div>
 
 	<div id="platforms-pie" class="block">

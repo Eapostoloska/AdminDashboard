@@ -14,12 +14,22 @@
 <?php } ?>
 
 <?php if($currentPage == 'landing.php'){ ?>
+	<!-- incremental counter libraries -->
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js'></script>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js'></script>
+
+	<!-- weather -->
+	<script src="https://cdn.rawgit.com/darkskyapp/skycons/master/skycons.js"></script>
+
+	<!-- charts -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.10/c3.min.js"></script>
+
+	<!-- Leaflet Map -->
+ 	<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+	<!-- Custom css -->
 	<script src="js/users.js"></script>
 	<script src="js/index.js"></script>
-
-	<!-- incremental counter libraries -->
-	<script src='https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js'></script>
 <?php } ?>
 
 

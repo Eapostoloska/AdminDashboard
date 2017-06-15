@@ -4,35 +4,35 @@
 <div class="land-grid">
 
 	<div id="total-users" class="block">
+			<i class="fa fa-user fa-large" aria-hidden="true"></i>
 		<div>
-			<i class="fa fa-user" aria-hidden="true"></i>
 			<h3>Total Users</h3>
-		</div>
 		<p class="statistic-counter">785</p>
+		</div>
 	</div>
 
 	<div id="avg-work" class="block">
+			<i class="fa fa-clock-o fa-large" aria-hidden="true"></i>
 		<div>
-			<i class="fa fa-clock-o" aria-hidden="true"></i>
 			<h3>Online Time</h3>
-		</div>
 		<p class="statistic-counter">590</p>
+		</div>
 	</div>
 
 	<div id="messages" class="block">
+			<i class="fa fa-envelope fa-large" aria-hidden="true"></i>
 		<div>
-			<i class="fa fa-envelope" aria-hidden="true"></i>
 			<h3>New Mails</h3>
-		</div>
 		<p class="statistic-counter">23</p>
+		</div>
 	</div>
 
 	<div id="total-visits" class="block">
+			<i class="fa fa-users fa-large" aria-hidden="true"></i>
 		<div>
-			<i class="fa fa-users" aria-hidden="true"></i>
 			<h3>Total Visitors</h3>
-		</div>
 		<p class="statistic-counter">5726</p>
+		</div>
 	</div>
 
 	<div id="weather" class="block">

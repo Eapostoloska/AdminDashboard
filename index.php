@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Log In</title>
 	<link rel="stylesheet" type="text/css" href="stylesheets/css/style.css">
 </head>
@@ -8,11 +9,18 @@
 <div class="login-bg">
 	<!-- <div id="login-form"> -->
 		<form>
-			<label>USERNAME</label>
-			<input type="text" id="username">
-	
-			<label>PASSWORD</label>
-			<input type="password" id="password">
+
+			<div class="group">      
+		      <input type="text" required id="username">
+		      <span class="bar"></span>
+		      <label id="login-username">Username</label>
+		    </div>
+
+		    <div class="group">      
+		      <input type="text" required id="password">
+		      <span class="bar"></span>
+		      <label id="login-password">Password</label>
+		    </div>
 	
 			<div id="submit">
 				<div id="keepSignedIn-wrapper">

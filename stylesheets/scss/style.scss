@@ -10,8 +10,10 @@
     content: $content;
 }
 
-$main-color: rgba(42, 63, 84, 1);
-$accent-color: rgba(37, 188, 156, 1);
+// $main-color: rgba(42, 63, 84, 1);
+$main-color: #272634;
+// $accent-color: rgba(37, 188, 156, 1);
+$accent-color: rgba(0, 101, 153, 1);
 $font-size: 10px;
 
 /*Scroll Design*/
@@ -44,7 +46,8 @@ $font-size: 10px;
 }
 
 body{
-  background-image: url('../../img/bg.jpg');
+  // background-image: url('../../img/bg.jpg');
+  background-image: url('https://4.bp.blogspot.com/-NeBnM0CsQdE/U-2z6n95iYI/AAAAAAABH7A/Goyf-xbcyL4/s0/Minimal%2BWindows%2B8.1%2BWhite_Ultra%2BHD.jpg');
   background-attachment: fixed;
   font-family: 'Roboto', sans-seif;
 }
@@ -72,7 +75,8 @@ div::selection, input::selection, textarea::selection, select::selection, option
 
 
 .login-bg{
-  background-image: url('../../img/login-bg.jpg');
+  // background-image: url('../../img/login-bg.jpg');
+  background-image: url('http://materialdesignblog.com/wp-content/uploads/2016/06/image3.jpg');
   background-attachment: fixed;
   background-position: center center; 
   background-repeat: no-repeat;
@@ -85,13 +89,15 @@ div::selection, input::selection, textarea::selection, select::selection, option
 
   form{
     width: 35%;
+    min-width: 400px;
     height: 40%;
-    background-color: rgba(42, 63, 84, .7);
+    background-color: #eee;
     border-radius: 5px;
     padding: 30px 50px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
     
     &>label{
       color: $accent-color;
@@ -101,19 +107,6 @@ div::selection, input::selection, textarea::selection, select::selection, option
       margin-left: 20px;
     }
   }
-}
-
-#username, #password{
-  padding: 10px 20px;
-  background: rgba(255, 255, 255, .3);
-  border: none;
-  border-radius: 10px;
-  margin-bottom: 25px;
-  outline: none;
-  font-family: Roboto;
-  font-size: 16px;
-  color: #fff;
-
 }
 
 #keepSignedIn-box{
@@ -128,7 +121,7 @@ div::selection, input::selection, textarea::selection, select::selection, option
   &:checked + #keepSignedIn-box:before{
     font-family: FontAwesome;
     content: "\f00c";
-    color: $main-color;
+    color: #fff;
     position: absolute;
     top: 2px;
     left: 2px;
@@ -241,14 +234,14 @@ nav{
 
 //GENERAL STYLE FOR ALL CARDS
 .block{
-  // background-color: rgba(255, 255, 255, .4);
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: #eee;
   padding: 0px;
+   box-shadow: 3px 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.18);
 }
 
 .title{
   width: 100%;
-  background-color: #2a3f54;
+  background-color: $main-color;
   color: #fff;
   text-align: center;
   font-size: 19px;
@@ -434,27 +427,29 @@ nav{
 // Individual Elements
 #total-users, #avg-work, #messages, #total-visits{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  padding: 0 10px;
 
   div{
     width: 80%;
     margin: 0 auto;
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
     align-items: center;
 
     h3{
-      color: #fff;
+      color: $main-color;
       font-weight: 200;  
     }
-
-    .fa{
-      font-size: 30px;
-      color: $accent-color;
-    }
   }
+}
+
+.fa-large {
+    font-size: 50px !important;
+      color: $accent-color;
 }
 
 .statistic-counter{
@@ -592,7 +587,7 @@ nav{
     border: none;
     border-bottom: 1px solid $accent-color;
     background-color: transparent;
-    color: #fff;
+    color: #000;
     resize: none;
 
     &:focus ~ label, &:valid ~ label{
@@ -736,7 +731,7 @@ nav{
   display: block;
   margin: 5px;
   text-align: center;
-  color: #fff;
+  color: $main-color;
   font-size: 24px;
   font-weight: 300;
 }
@@ -744,7 +739,7 @@ nav{
 #cadran {
   height: 150px;
   width: 150px;
-  background-color: rgba(42, 63, 84, .8);
+  background-color: rgba(39, 38, 52, 0.8);
   margin: 0 auto;
   border-radius: 50%;
   position: relative;

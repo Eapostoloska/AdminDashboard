@@ -17,7 +17,7 @@
 		    </div>
 
 		    <div class="group">      
-		      <input type="text" required id="password">
+		      <input type="password" required id="password">
 		      <span class="bar"></span>
 		      <label id="login-password">Password</label>
 		    </div>

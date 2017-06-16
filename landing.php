@@ -36,7 +36,7 @@
 	</div>
 
 	<div id="weather" class="block">
-		<div class="title">weather/temperature/hour</div>
+		<div class="title">Current Weather</div>
 		<div class="weather-container">
 			<div class="box">
 	   		<div class="loader"><img src="img/loader.gif"></div>
@@ -64,21 +64,21 @@
 	</div>
 
 	<div id="weather-stat" class="block">
-		<div class="title">stats about weather</div>
+		<div class="title">Weather Stats</div>
 		<div class="weather-stat-container">
 			<div id="weather-chart"></div>
 		</div>
 	</div>
 
 	<div id="line-chart" class="block">
-		<div class="title">line chart</div>
+		<div class="title">Weekly Stats</div>
 		<div class="line-chart-content">
 			<div id="area-chart"></div>
 		</div>
 	</div>
 
 	<div id="create-task" class="block">
-		<div class="title">create task</div>
+		<div class="title">New Task</div>
 		<div class="create-task-content">
 		    <div class="group">      
 		      <input type="text" required id="task-title">
@@ -105,14 +105,14 @@
 	</div>
 
 	<div id="display-task" class="block">
-		<div class="title">display task</div>
+		<div class="title">Tasks</div>
 		<div class="task-display-content">
 			<div class="task">
 				<h3>
 					<div class="high-priority semaphore"></div>
 					Minimize CSS
 				</h3>
-				<h6>Assigned to: <span>Elena</span></h6>
+				<h6><span>Elena</span>: task for <span>Ljubomir</span></h6>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 				tempor incididunt ut labore et dolore magna aliqua.</p>
 			</div>
@@ -121,7 +121,7 @@
 					<div class="low-priority semaphore"></div>
 					Minimize CSS
 				</h3>
-				<h6>Assigned to: <span>Elena</span></h6>
+				<h6><span>Stefanija</span>: task for <span>Llilika</span></h6>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 				tempor incididunt ut labore et dolore magna aliqua.</p>
 			</div>
@@ -144,7 +144,8 @@
 	</div>
 
 	<div id="bar-chart" class="block">
-		<div class="title">bar chart (users)</div>
+		<div class="title">Users Activity</div>
+		<div id="bar-container"></div>
 	</div>
 
 	<div id="map" class="block">
@@ -153,16 +154,35 @@
 	</div>
 
 	<div id="platforms-pie" class="block">
-		<div class="title">platforms used to visit</div>
+		<div class="title">Browsers Used</div>
+		<div id="piechart-container"></div>
 	</div>
 	<div id="guests-pie" class="block">
 		<div class="title">guest registered</div>
+		<div id="guestchart-container"></div>
 	</div>
 	<div id="server-pie" class="block">
 		<div class="title">server load</div>
+		<div id="server-load"></div>
 	</div>
 	<div id="calendar" class="block">
 		<div class="title">calendar</div>
+		<div class="calendar">
+		  <div class="cal-group month">
+		    <p class="left pointer minusmonth">&laquo;</p>
+		    <p class="left monthname center pointer"></p>
+		    <p class="right pointer addmonth">&raquo;</p>
+		  </div>
+		  <ul class="cal-group">
+		    <li>Mo</li>
+		    <li>Tu</li>
+		    <li>We</li>
+		    <li>Th</li>
+		    <li>Fr</li>
+		    <li>Sa</li>
+		    <li>Su</li>
+		  </ul>
+		</div>
 	</div>
 </div>
 

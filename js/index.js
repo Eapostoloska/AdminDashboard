@@ -1,5 +1,6 @@
 $( document ).ready(function() {
-var users = ["elena", "stefanija", "ljubomir", "lilika", "ads"];
+
+    var users = ["elena", "stefanija", "ljubomir", "lilika"];
 
 	$("#signOut").on("click", function () {
 		// localStorage.clear(); //clears all local storage variables
@@ -7,155 +8,91 @@ var users = ["elena", "stefanija", "ljubomir", "lilika", "ads"];
 		window.location = "index.php";
 	});
 
-            jQuery('.statistic-counter').counterUp({
-                delay: 10,
-                time: 2000
-            });
+    jQuery('.statistic-counter').counterUp({
+        delay: 10,
+        time: 2000
+    });
 
-     //tasks
+    //tasks
     $("#submit-task").on("click", function () {
-    	if ($("#task-title").val() != '' && $("#task-for").val() != '') {
-            var taskPriority = $("#task-priority option:selected").text();
+        var taskTitle = $("#task-title").val();
+        var taskFor = $("#task-for").val();
+        var taskPriority = $("#task-priority :selected").text();
+        var taskDescription = $("#task-description").val();
 
-            if (taskPriority == "Low Priority") {
-            	var taskTitle = "<h3><div class='low-priority semaphore'></div>" + $("#task-title").val() + "</h3>";
-            }else if(taskPriority == "Medium Priority"){
-            	var taskTitle = "<h3><div class='medium-priority semaphore'></div>" + $("#task-title").val() + "</h3>";
-            }else if(taskPriority == "High Priority"){
-            	var taskTitle = "<h3><div class='high-priority semaphore'></div>" + $("#task-title").val() + "</h3>";
+        if (taskTitle != '' && taskFor != '') {
+            if($.inArray(taskFor, users) >= 0){
+
+                if (taskPriority == "Low Priority") {
+                    var semaphoreColor = "low-priority";    
+                }else if(taskPriority == "Medium Priority"){
+                    var semaphoreColor = "medium-priority"
+                }else if(taskPriority == "High Priority"){
+                    var semaphoreColor = "high-priority"
+                }
+                var newTaskTitle = "<h3><div class='" + semaphoreColor + " semaphore'></div>" + taskTitle + "</h3>";
+                var newTaskFor = "<h6><span>" + $(".current-user").text() + "</span>: task for <span>" + taskFor + "</span></h6>";
+                var newTaskDescription = "<p>" + taskDescription + "</p>"
+
+                var taskTemplate = "<div class='task'>" + newTaskTitle + newTaskFor + newTaskDescription + "</div>";
+                $(".task-display-content").append(taskTemplate);
+
+            }else{
+                $("#task-for").val("No such user").css({"color":"#f44336"});
+                $("#task-for").on("focus", function () {
+                $(this).val('').css({"color":"#000"});
+            })
             }
 
-			if ($.inArray($("#task-for").val(), users) >= 0) {
-        		var taskFor = "<h6>Assigned to: <span>" + $("#task-for").val() + "</span></h6>";
-	            var taskDescription = "<p>" + $("#task-description").val() + "</p>";
-	            var newTaskStructure = "<div class='task'>" + taskTitle + taskFor + taskDescription + "</div>";
 
-	            $("#task-title").val('');
-	            $("#task-for").val('');
-	            $("#task-description").val('');
-	            $("#error-msg").css({"display": "none"});
 
-	            $(".task-display-content").append(newTaskStructure);
-				restartInputs();
-
-			}else{
-				$("#task-assign-label").text("No such user").css({"color":"red"});
-			}
-			
-        removeTask();    		
-	    }else if($("#task-title").val() == '' && $("#task-for").val() != ''){
-	    	$("#task-name-label").text("Name is required").css({"color":"red"});
-	    }else if($("#task-title").val() != '' && $("#task-for").val() == ''){
-	    	$("#task-assign-label").text("Task needs to be assigned").css({"color":"red"});
-	    }else{
-	    	$("#task-name-label").text("Name is required").css({"color":"red"});
-	    	$("#task-assign-label").text("Task needs to be assigned").css({"color":"red"});
-	    }
+        }else if(taskTitle == '' && taskFor != ''){
+            $("#task-title").val("Title is mandatory").css({"color":"#f44336"});
+                $("#task-title").on("focus", function () {
+                $(this).val('').css({"color":"#000"});
+            })
+        }else if(taskTitle != '' && taskFor == ''){
+            $("#task-for").val("Assign task").css({"color":"#f44336"});
+                $("#task-for").on("focus", function () {
+                $(this).val('').css({"color":"#000"});
+            })
+        }else{
+            $("#task-title").val("Title is mandatory").css({"color":"#f44336"});
+                $("#task-title").on("focus", function () {
+                $(this).val('').css({"color":"#000"});
+            })
+             $("#task-for").val("Assign task").css({"color":"#f44336"});
+                $("#task-for").on("focus", function () {
+                $(this).val('').css({"color":"#000"});
+            })
+        }
     })
 
-    function restartInputs() {
-        $("#task-title").on("focus", function () {
-        	$("#task-name-label").css({"color": "#25bc9c"})
-        })
-        $("#task-for").on("focus", function () {
-        	$("#task-assign-label").text("Assign to:").css({"color": "#25bc9c"})
-        })            	
-    }
 
 
-    //remove
-    function removeTask() {
-        var removeTask = "<button class='remove-task'><i class='fa fa-trash-o'></i></div>";
-
-        $(".semaphore").on("click", function () {
-        	$(this).parent().css({"text-decoration": "line-through"});
-        	$(this).parent().parent().css({"color": "#d2d2d2"});
-        	$(this).addClass("task-finished");
-
-        	if (($(this).parent().find(".remove-task").length) == 0) {
-				$(this).parent().append(removeTask);
-        	}
-            
-            $(".remove-task").on("click", function () {
-				$(this).parent().parent().fadeOut(1000);
-			})
-        })
-    }
-    removeTask();
 
 
-    $("#submit-task").on("click", function () {
-            	if ($("#task-title").val() != '' && $("#task-for").val() != '') {
-		            var taskPriority = $("#task-priority option:selected").text();
-
-		            if (taskPriority == "Low Priority") {
-		            	var taskTitle = "<h3><div class='low-priority semaphore'></div>" + $("#task-title").val() + "</h3>";
-		            }else if(taskPriority == "Medium Priority"){
-		            	var taskTitle = "<h3><div class='medium-priority semaphore'></div>" + $("#task-title").val() + "</h3>";
-		            }else if(taskPriority == "High Priority"){
-		            	var taskTitle = "<h3><div class='high-priority semaphore'></div>" + $("#task-title").val() + "</h3>";
-		            }
-
-		            var taskFor = "<h6>Assigned to: <span>" + $("#task-for").val() + "</span></h6>";
-		            var taskDescription = "<p>" + $("#task-description").val() + "</p>";
-		            var newTaskStructure = "<div class='task'>" + taskTitle + taskFor + taskDescription + "</div>";
-
-		            $("#task-title").val('');
-		            $("#task-for").val('');
-		            $("#task-description").val('');
-		            $("#error-msg").css({"display": "none"});
-
-		            $(".task-display-content").append(newTaskStructure);
-		            removeTask();    		
-			    }else{
-			    	$("#error-msg").css({"display": "initial"});
-			    }
-        
-
-            })
-
-
-            //remove
-            function removeTask() {
-	            var removeTask = "<button class='remove-task'><i class='fa fa-trash-o'></i></div>";
-
-	            $(".semaphore").on("click", function () {
-	            	$(this).parent().css({"text-decoration": "line-through"});
-	            	$(this).parent().parent().css({"color": "#d2d2d2"});
-	            	$(this).addClass("task-finished");
-
-	            	if (($(this).parent().find(".remove-task").length) == 0) {
-						$(this).parent().append(removeTask);
-	            	}
-		            
-		            $(".remove-task").on("click", function () {
-						$(this).parent().parent().fadeOut(1000);
-					})
-	            })
-            }
-	        removeTask();
-
-	        // css weather icons , 2 scripts
-	        $(document).ready(getLocation());
-function getLocation() {
-    if(navigator.geolocation){ navigator.geolocation.getCurrentPosition(function(location) {
-        var lat = location.coords.latitude;
-        var lon = location.coords.longitude;
-        var url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + ',' + lon;
-        // reverse geocoding using googleapi
-        $.getJSON(url, function(data) {
-            for (let result of data.results) {
-                if (result.types.includes('locality')) {
-                    let loc = result.formatted_address;
-                    getWeather(lat, lon, loc);
-                    return;
+    // css weather icons , 2 scripts
+    $(document).ready(getLocation());
+    function getLocation() {
+        if(navigator.geolocation){ navigator.geolocation.getCurrentPosition(function(location) {
+            var lat = location.coords.latitude;
+            var lon = location.coords.longitude;
+            var url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + ',' + lon;
+            // reverse geocoding using googleapi
+            $.getJSON(url, function(data) {
+                for (let result of data.results) {
+                    if (result.types.includes('locality')) {
+                        let loc = result.formatted_address;
+                        getWeather(lat, lon, loc);
+                        return;
+                    }
                 }
-            }
-        });
-    }, function(error) {
-        getIpLoc();
-    })} else getIpLoc();
-}
+            });
+        }, function(error) {
+            getIpLoc();
+        })} else getIpLoc();
+    }
 
 //get location from ip if navigator.geolocation fails
 function getIpLoc() {
@@ -329,9 +266,9 @@ var profile = c3.generate({
             ['Profile Completion', 91.4]
         ],
         type: 'gauge',
-        onclick: function (d, i) { console.log("onclick", d, i); },
-        onmouseover: function (d, i) { console.log("onmouseover", d, i); },
-        onmouseout: function (d, i) { console.log("onmouseout", d, i); }
+        onclick: function (d, i) { },
+        onmouseover: function (d, i) { },
+        onmouseout: function (d, i) {  }
     },
     color: {
         pattern: ['#FF0000', '#F97600', '#F6C600', '#60B044'], // the three color levels for the percentage values.
@@ -347,6 +284,7 @@ profile.load({
     columns: [['Profile Completion', 90]]
 });
 
+//gauge
 var mail = c3.generate({
 	bindto: '#mail-pie',
     data: {
@@ -354,9 +292,9 @@ var mail = c3.generate({
             ['Mail Replies', 91.4]
         ],
         type: 'gauge',
-        onclick: function (d, i) { console.log("onclick", d, i); },
-        onmouseover: function (d, i) { console.log("onmouseover", d, i); },
-        onmouseout: function (d, i) { console.log("onmouseout", d, i); }
+        onclick: function (d, i) { },
+        onmouseover: function (d, i) { },
+        onmouseout: function (d, i) { }
     },
     color: {
         pattern: ['#FF0000', '#F97600', '#F6C600', '#60B044'], // the three color levels for the percentage values.
@@ -378,9 +316,9 @@ var bounce = c3.generate({
             ['Bounce Rate', 91.4]
         ],
         type: 'gauge',
-        onclick: function (d, i) { console.log("onclick", d, i); },
-        onmouseover: function (d, i) { console.log("onmouseover", d, i); },
-        onmouseout: function (d, i) { console.log("onmouseout", d, i); }
+        onclick: function (d, i) { },
+        onmouseover: function (d, i) { },
+        onmouseout: function (d, i) { }
     },
     color: {
         pattern: ['#FF0000', '#F97600', '#F6C600', '#60B044'], // the three color levels for the percentage values.
@@ -396,6 +334,83 @@ bounce.load({
     columns: [['Bounce Rate', 20]]
 });
 
+//bar chart
+var chart = c3.generate({
+    bindto: '#bar-container',
+    data: {
+        columns: [
+            ['Jon', 100],
+            ['Jonny', 70],
+            ['Jane', 80],
+            ['Jenna', 60],
+        ],
+        type: 'bar',
+    },
+    bar: {
+        width: {
+            ratio: 0.5 // this makes bar width 50% of length between ticks
+        }
+        // or
+        //width: 100 // this makes bar width 100px
+    }
+});
+
+//pie chart
+var chart = c3.generate({
+    bindto: '#piechart-container',
+    data: {
+        // iris data from R
+        columns: [
+            ['Chrome', 150],
+            ['Mozila', 100],
+            ['Opera', 30],
+            ['Safari', 70],
+            ['Explorer', 1]
+        ],
+        type : 'pie',
+        onclick: function (d, i) { console.log("onclick", d, i); },
+        onmouseover: function (d, i) { console.log("onmouseover", d, i); },
+        onmouseout: function (d, i) { console.log("onmouseout", d, i); }
+    }
+});
+
+//donut chart
+var chart = c3.generate({
+    bindto: '#guestchart-container',
+    data: {
+        columns: [
+            ['Women', 120],
+            ['Men', 70],
+        ],
+        type : 'donut',
+        onclick: function (d, i) { console.log("onclick", d, i); },
+        onmouseover: function (d, i) { console.log("onmouseover", d, i); },
+        onmouseout: function (d, i) { console.log("onmouseout", d, i); }
+    },
+});
+
+//server load
+var mail = c3.generate({
+    bindto: '#server-load',
+    data: {
+        columns: [
+            ['Server Load', 97.4]
+        ],
+        type: 'gauge',
+        onclick: function (d, i) { },
+        onmouseover: function (d, i) { },
+        onmouseout: function (d, i) { }
+    },
+    color: {
+        pattern: ['#FF0000', '#F97600', '#F6C600', '#60B044'], // the three color levels for the percentage values.
+        threshold: {
+            values: [30, 60, 90, 100]
+        }
+    },
+    size: {
+        height: 180
+    }
+});
 
 // MAP
 var map = L.map('mapid').setView([51.505, -0.09], 1);
@@ -416,3 +431,67 @@ L.marker([41.1231, 20.8016]).addTo(map)
     .openPopup();
 
 });
+
+// Calendar
+var themonth = 1;
+renderCal(themonth);
+
+$('.minusmonth').click(function(){
+  themonth += -1;
+  renderCal(themonth);
+});
+
+$('.addmonth').click(function(){
+  themonth += 1;
+  renderCal(themonth);
+});
+
+function renderCal(themonth){
+$('.calendar li').remove();
+$('.calendar ul').append('<li>Mo</li><li>Tu</li><li>We</li><li>Th</li><li>Fr</li><li>Sa</li> <li>Su</li>');
+var d = new Date(),
+  currentMonth = d.getMonth()+themonth, // get this month
+  days = numDays(currentMonth,d.getYear()), // get number of days in the month
+  fDay = firstDay(currentMonth,d.getYear())-1, // find what day of the week the 1st lands on
+  months = ['January','February','March','April','May','June','July','August','September','October','November','December']; // month names
+
+$('.calendar p.monthname').text(months[currentMonth-1]); // add month name to calendar
+
+for (var i=0;i<fDay-1;i++) { // place the first day of the month in the correct position
+  $('<li>&nbsp;</li>').appendTo('.calendar ul');
+}
+
+for (var i = 1;i<=days;i++) { // write out the days
+  $('<li>'+i+'</li>').appendTo('.calendar ul');
+}
+
+function firstDay(month,year) {
+  return new Date(year,month,1).getDay();
+}
+
+function numDays(month,year) {
+  return new Date(year,month,0).getDate();
+}
+
+var clicker = 0;
+var min = 0;
+var max = 0;
+
+$('.calendar li').click(function(){ // toggle selected dates
+  if(clicker==0){
+    clicker=1;
+    $('.calendar li').removeClass('red');
+    $(this).addClass('red');
+    min = $(this).text();
+  } else {
+    clicker=0;
+    $(this).addClass('red');
+    $('.calendar li.red').each(function(){
+      max = $(this).text();
+    });
+    for(i=parseInt(min);i<parseInt(max);i++){
+      $('.calendar li:nth-of-type('+(i+7+fDay-1)+')').addClass('red'); 
+    }
+  }
+});
+}

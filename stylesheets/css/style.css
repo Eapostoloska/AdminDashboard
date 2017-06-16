@@ -49,7 +49,7 @@ button {
     transform: scale(1.01, 1.01); }
 
 div::selection, input::selection, textarea::selection, select::selection, option::selection, button::selection, a::selection {
-  background-color: #25bc9c; }
+  background-color: #006599; }
 
 .login-bg {
   background-image: url("http://materialdesignblog.com/wp-content/uploads/2016/06/image3.jpg");
@@ -160,15 +160,67 @@ nav {
         font-size: 20px; }
     nav ul a:hover i {
       color: #006599; }
-  nav:hover {
-    left: 0px; }
-  nav:hover + .body-wrapper {
-    margin: 10px 10px 0px 210px; }
+    nav ul #toggle {
+      top: -10px; }
+    nav ul #toggle-a:hover #hamburger, nav ul #toggle-a:hover #hamburger:before, nav ul #toggle-a:hover #hamburger:after {
+      background-color: #006599; }
+
+#nav-toggle {
+  display: none; }
+
+#nav-toggle:checked ~ nav {
+  left: 0px; }
+
+#nav-toggle:checked ~ .body-wrapper {
+  margin: 10px 10px 0px 210px; }
+
+#nav-toggle:checked ~ nav ul a li label #hamburger:before {
+  top: -4px;
+  width: 12px;
+  transform: rotate(-40deg); }
+
+#nav-toggle:checked ~ nav ul a li label #hamburger:after {
+  top: 4px;
+  width: 12px;
+  transform: rotate(40deg); }
+
+#hamburger {
+  margin-top: 10px;
+  width: 17px;
+  height: 3px;
+  background-color: #fff;
+  border-radius: 50px;
+  transform: rotate(0deg);
+  transition: all .2s ease-out; }
+
+#hamburger:before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: 0px;
+  width: 17px;
+  height: 3px;
+  background-color: #fff;
+  border-radius: 50px;
+  transform: rotate(0deg);
+  transition: all .2s ease-out; }
+
+#hamburger:after {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: 0px;
+  width: 17px;
+  height: 3px;
+  background-color: #fff;
+  border-radius: 50px;
+  transform: rotate(0deg);
+  transition: all .2s ease-out; }
 
 .body-wrapper {
   margin: 10px 10px 0px 80px; }
 
-#greeting {
+.current-user {
   text-transform: capitalize; }
 
 .block {
@@ -214,7 +266,7 @@ nav {
   grid-area: 4 / 1 / span 3 / span 4; }
 
 #create-task {
-  grid-area: 7 / 1 / span 3 / 2; }
+  grid-area: 7 / 1 / span 2 / 2; }
 
 #display-task {
   grid-area: 7 / 2 / span 4 / 3; }
@@ -223,7 +275,7 @@ nav {
   grid-area: 7 / 3 / 8 / span 2; }
 
 #bar-chart {
-  grid-area: 10 / 1 / 11 / 2; }
+  grid-area: 9 / 1 / 11 / 2; }
 
 #map {
   grid-area: 8 / 3 / span 3/ span 2; }
@@ -387,12 +439,13 @@ nav {
 #submit-task {
   border: none;
   border-radius: 50px;
-  background-color: #25bc9c;
+  background-color: #006599;
   color: #fff;
   padding: 5px; }
 
 .task-display-content {
   height: calc(100% - 33px);
+  max-width: 270px;
   padding: 10px;
   display: flex;
   flex-direction: column;
@@ -403,7 +456,7 @@ nav {
   width: 85%;
   margin-bottom: 20px; }
   .task h3 {
-    color: #25bc9c; }
+    color: #006599; }
   .task:after {
     content: '';
     position: absolute;
@@ -411,7 +464,7 @@ nav {
     top: 0;
     width: 2px;
     height: 120%;
-    background-color: #25bc9c; }
+    background-color: #006599; }
   .task span {
     text-transform: capitalize;
     color: #006599; }
@@ -433,13 +486,13 @@ nav {
     transform: scale(1.01, 1.01); }
 
 .high-priority {
-  background-color: #fa9482; }
+  background-color: #f44336; }
 
 .medium-priority {
-  background-color: #ffd288; }
+  background-color: #ff5722; }
 
 .low-priority {
-  background-color: #adfcba; }
+  background-color: #2196f3; }
 
 .task-finished {
   background-color: #d2d2d2; }
@@ -447,7 +500,7 @@ nav {
     content: "\f00c";
     font-family: "FontAwesome";
     font-size: 16px;
-    color: #25bc9c;
+    color: #006599;
     z-index: 3;
     position: absolute;
     top: 1px;
@@ -631,14 +684,14 @@ nav {
 
 #s-aiguille {
   width: 2px;
-  background-color: #25bc9c;
+  background-color: #006599;
   border-radius: 1px;
   height: 50%;
   left: 50%;
   top: -85%; }
 
 /*chart*/
-.line-chart-content, .weather-stat-container, #mapid {
+.line-chart-content, .weather-stat-container, #mapid, #bar-container, #piechart-container, #guestchart-container, #server-load {
   height: calc(95% - 33px);
   width: 100%; }
 
@@ -665,5 +718,56 @@ nav {
 
 .c3 svg {
   width: 97% !important; }
+
+.left {
+  float: left; }
+
+.right {
+  float: right; }
+
+.monthname {
+  width: 18em; }
+
+.month {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 10px; }
+
+.pointer {
+  cursor: pointer; }
+
+.cal-group:after {
+  content: "";
+  display: table;
+  clear: both; }
+
+.calendar p {
+  color: #006599; }
+
+.calendar {
+  background: #eee;
+  color: #272634;
+  padding: .5em .5em 1em;
+  max-width: 20em;
+  min-height: 15em;
+  margin: .5em auto;
+  -webkit-border-radius: 5px;
+  border-radius: 5px; }
+
+.calendar li {
+  float: left;
+  width: -webkit-calc(100%/7);
+  padding: .25em 0;
+  cursor: pointer;
+  border-bottom: 1px solid #444; }
+
+.calendar li:hover, .calendar li.red {
+  color: #006599; }
+
+.calendar li:nth-child(-n+7) {
+  color: #666; }
+
+.center {
+  text-align: center; }
 
 /*# sourceMappingURL=style.css.map */

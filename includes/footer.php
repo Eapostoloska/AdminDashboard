@@ -11,6 +11,7 @@
 
 <?php if($currentPage == 'index.php'){ ?>
 	<script src="js/users.js"></script>
+	<script src="js/validation.js"></script>
 <?php } ?>
 
 <?php if($currentPage == 'landing.php'){ ?>
@@ -35,7 +36,7 @@
 
 <script>
 	var currentUser = localStorage.getItem("user");
-	$("#greeting").text(currentUser);
+	$(".current-user").text(currentUser);
 </script>
 
 

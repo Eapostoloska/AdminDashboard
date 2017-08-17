@@ -1,3 +1,10 @@
+<?php
+	session_start();
+	$errors = (isset($_SESSION['errors'])) ? $_SESSION['errors'] : [];
+	unset($_SESSION['errors']);
+	unset($curentUser);
+ ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,32 +14,25 @@
 </head>
 <body>
 <div class="login-bg">
-	<!-- <div id="login-form"> -->
-		<form>
-
+		<form method="POST" action="db/loginHandle.php">
 			<div class="group">      
-		      <input type="text" required id="username">
+		      <input type="text" id="username" name="username">
 		      <span class="bar"></span>
 		      <label id="login-username">Username</label>
+		      <p><?php echo isset($errors['username']) ? $errors['username'] : ''; ?></p>
 		    </div>
 
 		    <div class="group">      
-		      <input type="password" required id="password">
+		      <input type="password" id="password" name="password">
 		      <span class="bar"></span>
 		      <label id="login-password">Password</label>
+		      <p><?php echo isset($errors['password']) ? $errors['password'] : ''; ?></p>
 		    </div>
 	
 			<div id="submit">
-				<div id="keepSignedIn-wrapper">
-					<input type="checkbox" id="keepSignedIn">
-					<label for="keepSignedIn" id="keepSignedIn-box"></label>
-					<label for="keepSignedIn">Keep me signed in</label>
-				</div>
-			
-				<button type="button" id="submitBtn">SIGN IN</button>
+				<button type="submit" id="submitBtn">SIGN IN</button>
 			</div>
 		</form>
-	<!-- </div> -->
 </div>
 
 <?php include 'includes/footer.php' ?>

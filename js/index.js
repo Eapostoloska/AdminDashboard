@@ -1,13 +1,5 @@
 $( document ).ready(function() {
 
-    var users = ["elena", "stefanija", "ljubomir", "lilika"];
-
-	$("#signOut").on("click", function () {
-		// localStorage.clear(); //clears all local storage variables
-		localStorage.removeItem("user"); //clears only the user local storage variable
-		window.location = "index.php";
-	});
-
     jQuery('.statistic-counter').counterUp({
         delay: 10,
         time: 2000

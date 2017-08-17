@@ -1,5 +1,4 @@
 <?php include 'includes/header.php' ?>
-<?php require 'data/userData.php'; ?>
 
 <div class="land-grid">
 

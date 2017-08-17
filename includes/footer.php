@@ -10,9 +10,13 @@
 ?>
 
 <?php if($currentPage == 'index.php'){ ?>
-	<script src="js/users.js"></script>
-	<script src="js/validation.js"></script>
+	<script src="js/login.js"></script>
 <?php } ?>
+
+<?php if($currentPage == 'users.php'){ ?>
+	<script src="js/users.js"></script>
+<?php } ?>
+  
 
 <?php if($currentPage == 'landing.php'){ ?>
 	<!-- incremental counter libraries -->
@@ -28,18 +32,20 @@
 
 	<!-- Leaflet Map -->
  	<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
-	<!-- Custom css -->
-	<script src="js/users.js"></script>
+
+	
+	<!-- Custom js -->
 	<script src="js/index.js"></script>
 <?php } ?>
 
 
 <script>
-	var currentUser = localStorage.getItem("user");
-	$(".current-user").text(currentUser);
+$( document ).ready(function() {
+	$("#signOut").on("click", function () {
+		window.location = "index.php";
+	})
+})
 </script>
-
-
 
 </body>
 </html>

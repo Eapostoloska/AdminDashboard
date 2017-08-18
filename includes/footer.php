@@ -3,11 +3,6 @@
 <script src="https://use.fontawesome.com/1fa2e54b22.js"></script>
 
 <!-- If page is index.php, add js/users.js -->
-<?php 
-	$phpSelf = $_SERVER ['PHP_SELF'];
-	$phpSelfElements = explode('/', $phpSelf);
-	$currentPage = ($phpSelfElements[count($phpSelfElements) - 1]);
-?>
 
 <?php if($currentPage == 'index.php'){ ?>
 	<script src="js/login.js"></script>
@@ -15,6 +10,10 @@
 
 <?php if($currentPage == 'users.php'){ ?>
 	<script src="js/users.js"></script>
+<?php } ?>
+
+<?php if($currentPage == 'uielements.php'){ ?>
+	<script src="js/uielements.js"></script>
 <?php } ?>
   
 

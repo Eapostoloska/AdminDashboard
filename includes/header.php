@@ -4,7 +4,16 @@
   session_start();
   $loggedUser = $_SESSION['name'] .' '. $_SESSION['lastname'];
   $userRole = $_SESSION['role'];
+
+  $phpSelf = $_SERVER ['PHP_SELF'];
+  $phpSelfElements = explode('/', $phpSelf);
+  $currentPage = ($phpSelfElements[count($phpSelfElements) - 1]);
  
+  if($currentPage == 'landing.php'){
+    $allUsers = getAllUsers();
+    $allTasks = getAllTasks($_SESSION['name']);
+  }
+
  ?>
 
 <!DOCTYPE html>
@@ -29,9 +38,9 @@
     <h3><?= $loggedUser ?></h3>
   <ul>
     <a href="landing.php"><li> Home <i class="fa fa-home" aria-hidden="true"></i></li></a>
-    <a href="users.php"><li> Users <i class="fa fa-user" aria-hidden="true"></i></li></a>
-    <a href="#"><li> UI Elements <i class="fa fa-desktop" aria-hidden="true"></i></li></a>
-    <a href="#"><li> Tables <i class="fa fa-table" aria-hidden="true"></i></li></a>
+    <a href="users.php"><li> Users <i class="fa fa-users" aria-hidden="true"></i></li></a>
+    <a href="profile.php"><li> Profile <i class="fa fa-user" aria-hidden="true"></i></li></a>
+    <a href="uielements.php"><li> UI elements <i class="fa fa-desktop" aria-hidden="true"></i></li></a>
     <a href="#"><li> Charts <i class="fa fa-line-chart" aria-hidden="true"></i></li></a>
     <a href="#"><li> Shop <i class="fa fa-shopping-basket" aria-hidden="true"></i></li></a>
     <a href="#"><li> Tasks <i class="fa fa-thumb-tack" aria-hidden="true"></i></li></a>

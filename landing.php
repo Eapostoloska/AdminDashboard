@@ -1,5 +1,6 @@
 <?php include 'includes/header.php' ?>
 
+
 <div class="land-grid">
 
 	<div id="total-users" class="block">
@@ -77,53 +78,49 @@
 	</div>
 
 	<div id="create-task" class="block">
-		<div class="title">New Task</div>
-		<div class="create-task-content">
-		    <div class="group">      
-		      <input type="text" required id="task-title">
-		      <span class="bar"></span>
-		      <label id="task-name-label">Task name:</label>
-		    </div>
-		    <div class="group">      
-		      <input type="text" required id="task-for">
-		      <span class="bar"></span>
-		      <label id="task-assign-label">Assign to:</label>
-		    </div>
-			<select id="task-priority">
-				<option>Low Priority</option>
-				<option>Medium Priority</option>
-				<option>High Priority</option>
-			</select>
-		    <div class="group">      
-		      <textarea type="text" required="" id="task-description" rows="3" maxlength="200"></textarea>
-		      <span class="bar"></span>
-		      <label>Task description:</label>
-		    </div>
-				<button id="submit-task">Add</button>
+		<form method="POST" action="db/createTask.php">
+			<input type="hidden" name="createdBy" value="<?php echo $_SESSION['name'] ?>">
+			<div class="title">New Task</div>
+			<div class="create-task-content">
+			    <div class="group">      
+			      <input type="text" required id="task-title" name="task-title">
+			      <span class="bar"></span>
+			      <label id="task-name-label">Task name:</label>
+			    </div>
+			    <select id="task-for" name="task-for">
+			    		<option value="Not set">Assign To:</option>
+					<?php foreach ($allUsers as $key => $each) {?>
+						<option value="<?php echo $each['name']; ?>"><?php echo $each['name']; ?></option>
+					<?php } ?>
+				</select>
+				<select id="task-priority" name="task-priority">
+					<option value="low">Low Priority</option>
+					<option value="medium">Medium Priority</option>
+					<option value="high">High Priority</option>
+				</select>
+			    <div class="group">      
+			      <textarea type="text" required="" id="task-description" rows="3" maxlength="200" name="task-description"></textarea>
+			      <span class="bar"></span>
+			      <label>Task description:</label>
+			    </div>
+					<button type="submit" id="submit-task">Add</button>
 			</div>
+		</form>
 	</div>
 
 	<div id="display-task" class="block">
 		<div class="title">Tasks</div>
 		<div class="task-display-content">
-			<div class="task">
-				<h3>
-					<div class="high-priority semaphore"></div>
-					Minimize CSS
-				</h3>
-				<h6><span>Elena</span>: task for <span>Ljubomir</span></h6>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua.</p>
-			</div>
-			<div class="task">
-				<h3>
-					<div class="low-priority semaphore"></div>
-					Minimize CSS
-				</h3>
-				<h6><span>Stefanija</span>: task for <span>Llilika</span></h6>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua.</p>
-			</div>
+			<?php foreach ($allTasks as $key => $task) { ?>
+				<div class="task">
+					<h3>
+						<div class="<?php echo $task['priority'];?>-priority semaphore"></div>
+						<?php echo $task['name']; ?>
+					</h3>
+					<h6><span><?php echo $task['created_by']; ?></span>: task for <span><?php echo $task['assigned_to']; ?></span></h6>
+					<p><?php echo $task['description']; ?></p>
+				</div>
+			<?php } ?>
 		</div>
 	</div>
 

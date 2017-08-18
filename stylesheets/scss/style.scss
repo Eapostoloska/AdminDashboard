@@ -1109,3 +1109,256 @@ tbody:hover > tr:hover td {
     border-radius: 3px;
     }
 }
+
+.edit-profile{
+  width: 50%;
+  padding: 10px 10px;
+  margin: 30px auto;
+  background-color: $main-color;
+  border: 2px solid #fff;
+  border-radius: 5px;
+  div {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0px;
+  }
+  label {
+    width: 20%;
+    color: white;
+  }
+  input, select{
+    padding: 8px 5px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+    border-radius: 3px;
+    width: 60%;
+  }
+  button {
+    border: none;
+    border-radius: 50px;
+    background-color: $accent-color;
+    color: #fff;
+    padding: 5px;
+  }
+}
+
+#profile-header{
+  font-weight: 700;
+  font-size: 25px;
+  display: flex;
+  justify-content: space-around;
+}
+
+// ///////////
+// UI ELEMENTS
+// ///////////
+
+
+
+h1 {
+  color: #666666;
+  font-size: 2rem;
+  line-height: 1.5em;
+  margin:2em 0 2em 0;
+}
+
+$color1: #426FC5;
+$color2: #00897b;
+$color3: #f6774f;
+$color4: #e94043;
+
+.box {
+  margin: 1rem;
+  width: 18.75rem;
+  
+  img {
+    width: 100%;
+  }
+}
+
+.btn {
+  border: none;
+  color: white;
+  overflow: hidden;
+  margin: 1rem;
+  padding: 0;
+  text-transform: uppercase;
+  width: 150px;
+  height: 40px;
+  
+  &.color-1 {
+    background-color: $color1;
+  }
+  
+  &.color-2 {
+    background-color: $color2;
+  }
+  
+  &.color-3 {
+    background-color: $color3;
+  }
+  
+  &.color-4 {
+    background-color: $color4;
+  }
+}
+
+.btn-border {
+  
+  &.color-1 {
+    background-color: transparent;
+    border: 2px solid $color1;
+    color: $color1;
+  }
+  
+  &.color-2 {
+    background-color: transparent;
+    border: 2px solid $color2;
+    color: $color2;
+  }
+  
+  &.color-3 {
+    background-color: transparent;
+    border: 2px solid $color3;
+    color: $color3;
+  }
+  
+  &.color-4 {
+    background-color: transparent;
+    border: 2px solid $color4;
+    color: $color4;
+  }
+}
+
+.btn-round {
+  border-radius: 10em;
+}
+
+.buttons-list {
+  position: relative;
+  
+  canvas {
+    opacity: 0.25;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+
+.container {
+  align-content: center;
+  align-items: flex-start;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 46rem;
+  background-color: $main-color;
+  border: 2px solid #fff;
+  border-radius: 5px;
+}
+
+.ui-buttons {
+    font-weight: 700;
+    font-size: 25px;
+    display: flex;
+    justify-content: space-around;
+    padding: 5px 0px 25px 0px;
+}
+
+
+.zone {      
+  margin: auto;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: radial-gradient(ellipse at center,#EB6A5A 0,#c9402f 100%);
+  width:80%;
+  height:50%;  
+  border:5px dashed white;
+  text-align:center;
+  color: white;
+  z-index: 20;
+  transition: all 0.3s ease-out;
+  box-shadow: 0 0 0 1px rgba(255,255,255,.05),inset 0 0 .25em 0 rgba(0,0,0,.25);
+  .btnCompression {
+    .btn {
+
+    } 
+    .active {
+      background: #EB6A5A;
+      color:white;
+    }
+  }
+  #dropZ i {
+    text-align: center;
+    font-size: 10em;  
+    color:#fff;
+    margin-top: 50px;
+  }
+  .selectFile {
+    height: 50px;
+    margin: 20px auto;
+    position: relative;
+    width: 200px;          
+  }
+
+  #dropZ label, input {
+    cursor: pointer;
+    display: block;
+    height: 50px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    border-radius: 5px;          
+  }
+
+  #dropZ label {
+    background: #fff;
+    color:#EB6A5A;
+    display: inline-block;
+    font-size: 1.2em;
+    line-height: 50px;
+    padding: 0;
+    text-align: center;
+    white-space: nowrap;
+    text-transform: uppercase;
+    font-weight: 400;   
+    box-shadow: 0 1px 1px gray;
+  }
+
+  input[type=file] {
+    opacity: 0;
+  }
+
+}
+.zone.in {
+  color:white;
+  border-color:white;
+  background: radial-gradient(ellipse at center,#EB6A5A 0,#c9402f 100%);
+  i {          
+    color:#fff;
+  }
+  label {
+    background: #fff;
+    color:#EB6A5A;
+  }
+}
+.zone.hover {
+  color:gray;
+  border-color:white;
+  background:#fff;
+  border:5px dashed gray;
+  i {          
+    color:#EB6A5A;
+  }
+  label {
+    background: #fff;
+    color:#EB6A5A;
+  }
+}
+.zone.fade {
+  transition: all 0.3s ease-out;
+  opacity: 1;
+}

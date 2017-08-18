@@ -12,7 +12,7 @@ $( document ).ready(function() {
         var taskPriority = $("#task-priority :selected").text();
         var taskDescription = $("#task-description").val();
 
-        if (taskTitle != '' && taskFor != '') {
+        if (taskTitle != '' && taskFor != "") {
             if($.inArray(taskFor, users) >= 0){
 
                 if (taskPriority == "Low Priority") {

@@ -101,4 +101,10 @@
 		return $pdo->exec($sql);
 	}
 
+	function deleteTask($id){
+		$pdo = connect();
+		$sql = "DELETE FROM `tasks` WHERE `tasks`.`id` = '{$id}'";
+		return $pdo->exec($sql);
+	}
+
  ?>

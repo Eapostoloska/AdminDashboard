@@ -103,7 +103,7 @@
 			      <span class="bar"></span>
 			      <label>Task description:</label>
 			    </div>
-					<button type="submit" id="submit-task">Add</button>
+				<button type="submit" id="submit-task">Add</button>
 			</div>
 		</form>
 	</div>
@@ -112,9 +112,11 @@
 		<div class="title">Tasks</div>
 		<div class="task-display-content">
 			<?php foreach ($allTasks as $key => $task) { ?>
+				<input type="hidden" name="id" value="<?php echo $task['id']; ?>">
 				<div class="task">
 					<h3>
-						<div class="<?php echo $task['priority'];?>-priority semaphore"></div>
+						<a href="db/deleteTaskHandle.php?id=<?php echo $task['id']; ?>"></a>
+						<i class="<?php echo $task['priority'];?>-priority semaphore fa fa-check-circle" aria-hidden="true"></i>
 						<?php echo $task['name']; ?>
 					</h3>
 					<h6><span><?php echo $task['created_by']; ?></span>: task for <span><?php echo $task['assigned_to']; ?></span></h6>

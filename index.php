@@ -3,6 +3,10 @@
 	$errors = (isset($_SESSION['errors'])) ? $_SESSION['errors'] : [];
 	unset($_SESSION['errors']);
 	unset($curentUser);
+
+	$phpSelf = $_SERVER ['PHP_SELF'];
+	$phpSelfElements = explode('/', $phpSelf);
+	$currentPage = ($phpSelfElements[count($phpSelfElements) - 1]);
  ?>
 
 <!DOCTYPE html>

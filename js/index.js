@@ -36,8 +36,6 @@ $( document ).ready(function() {
             })
             }
 
-
-
         }else if(taskTitle == '' && taskFor != ''){
             $("#task-title").val("Title is mandatory").css({"color":"#f44336"});
                 $("#task-title").on("focus", function () {
@@ -60,8 +58,31 @@ $( document ).ready(function() {
         }
     })
 
+    // delete task 
+    $(".semaphore").on("click", function () {
+        if($(this).parent().children('.remove-task').length == 0) {
+            $(this).parent().children("a").append("<i class='fa fa-trash remove-task' aria-hidden='true'></i>")
+        }
+        $(this).parent().css("text-decoration", "line-through");
+    })
 
-
+    // task inputs
+    $(".create-task-content input").on("focus", function () {
+        $(this).siblings("label").css({"bottom": "33px", "font-size": "13px", "color": "#5489a5"});
+        $(this).on("blur", function () {
+            if ($(this).val() == '') {
+                $(this).siblings("label").css({"bottom": "0px", "font-size": "15px", "color": "#006599"});
+            }
+        })
+    })
+    $(".create-task-content textarea").on("focus", function () {
+        $(this).siblings("label").css({"bottom": "75px", "font-size": "13px", "color": "#5489a5"});
+        $(this).on("blur", function () {
+            if ($(this).val() == '') {
+                $(this).siblings("label").css({"bottom": "0px", "font-size": "15px", "color": "#006599"});
+            }
+        })
+    })
 
 
     // css weather icons , 2 scripts
